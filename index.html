@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--start of metadata tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <title>HOME PAGE</title>
+    <!--end of metadata tags-->
+</head>
+
+<body>
+    <nav>        
+        <a href="#">HOME</a>
+        <a href="#">PORTFOLIO</a>
+        <a href="#">ABOUT ME</a>
+        <a href="#">CONTACT</a> 
+              
+            <span class="artist">FLOR VASQUEZ </span>
+            <span class="photography">PHOTOGRAPHY</span>        
+    </nav>
+
+    <div class="image-container">
+        <div class="gallery">
+            <!--photos-->
+            <a href="img/pic1.jpg" data-lightbox="models" data-title="caption1">                
+                <img  src="img/pic1.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>
+            <a href="img/pic2.jpg" data-lightbox="models" data-title="caption2">                
+                <img  src="img/pic2.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>
+            <a href="img/pic3.jpg" data-lightbox="models" data-title="caption3">                
+                <img  src="img/pic3.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>
+            <a href="img/pic4.jpg" data-lightbox="models" data-title="caption4">                
+                <img  src="img/pic4.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>
+            <a href="img/pic5.jpg" data-lightbox="models" data-title="caption5">                
+                <img  src="img/pic5.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>
+            <a href="img/pic6.jpg" data-lightbox="models" data-title="caption6">                
+                <img  src="img/pic6.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>
+            <a href="img/pic7.jpg" data-lightbox="models" data-title="caption7">                
+                <img  src="img/pic7.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>
+            <a href="img/pic8.jpg" data-lightbox="models" data-title="caption8">                
+                <img  src="img/pic8.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>
+            <a href="img/pic9.jpg" data-lightbox="models" data-title="caption9">                
+                <img  src="img/pic9.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>
+            <a href="img/pic10.jpg" data-lightbox="models" data-title="caption10">                
+                <img  src="img/pic10.jpg" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>  
+            <a href="img/pic11.JPG" data-lightbox="models" data-title="caption11">                
+                <img  src="img/pic11.JPG" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>    
+            <a href="img/pic12.JPG" data-lightbox="models" data-title="caption12">                
+                <img  src="img/pic12.JPG" alt="novios mirandose" class="uniform-image"  oncontextmenu="return false;" ondragstart="return false;">
+            </a>            
+        </div>    
+    </div>
+    <!--script-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+    <script src="JS/lightbox-plus-jquery.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>-->
+
+    <!--Script to block images-->
+    <script>
+        $(document).ready(function() {
+            // Mutation observer to disable context menu on Lightbox images
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        mutation.addedNodes.forEach(function(node) {
+                            if (node.nodeType === 1 && node.classList.contains('lb-image')) {
+                                node.setAttribute('oncontextmenu', 'return false;');
+                            }
+                        });
+                    }
+                });
+            });
+        
+            // Start observing the document for added nodes
+            observer.observe(document.body, { childList: true, subtree: true });
+        
+            // Also handle any existing Lightbox images immediately
+            $('.lb-image').attr('oncontextmenu', 'return false;');
+        });
+        </script>
+    </body>
+</html>
